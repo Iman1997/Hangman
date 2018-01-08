@@ -3,6 +3,7 @@ package com.example.bruger.hangmanv1;
         import android.content.Context;
         import android.content.Intent;
         import android.content.SharedPreferences;
+        import android.preference.PreferenceManager;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.view.View;
@@ -10,6 +11,10 @@ package com.example.bruger.hangmanv1;
         import android.widget.EditText;
         import android.widget.ImageView;
         import android.widget.TextView;
+        import com.google.gson.Gson;
+        import com.google.gson.reflect.TypeToken;
+
+        import java.util.ArrayList;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -163,7 +168,24 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+    private void saveHighScore (int score, Double ScoreTimeResult) {
+        SharedPreferences prefobj = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = prefobj.edit();
+        Gson gsonobj = new Gson();
+        String highscoreJson = prefobj.getString("highscore", null);
 
+        ArrayList<String> highscores;
+        if(highscoreJson !=null) {
+            highscores = gsonobj.fromJson(highscoreJson, new TypeToken<ArrayList<String>>() {
+            }.getType());
+        } else {
+            highscores = new ArrayList<String>();
+        }
+
+        highscores.add(score + "Letters " + Logic.getOrdet().length());
+        System.out.println("HIGHSCORES: " +  highscores.toString());
+        editor.putString("highscore", gsonobj.toJson(highscores)).apply();
+    }
 }
 
 
