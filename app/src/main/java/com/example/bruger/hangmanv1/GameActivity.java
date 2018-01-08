@@ -18,9 +18,9 @@ package com.example.bruger.hangmanv1;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button Check;
-    Button HomeButton;
-    Button Reset;
+    Button check;
+    Button homeButton;
+    Button reset;
     TextView Word;
     TextView Used;
     TextView Score;
@@ -65,20 +65,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         Input = (EditText) findViewById(R.id.Input);
 
-        Check = (Button) findViewById(R.id.Check);
-        Check.setOnClickListener(this);
+        check = (Button) findViewById(R.id.check);
+        check.setOnClickListener(this);
 
-        HomeButton = (Button) findViewById(R.id.HomeButton);
-        HomeButton.setOnClickListener(this);
+        homeButton = (Button) findViewById(R.id.home);
+        homeButton.setOnClickListener(this);
 
-        Reset = (Button) findViewById(R.id.Reset);
-        Reset.setOnClickListener(this);
+        reset = (Button) findViewById(R.id.reset);
+        reset.setOnClickListener(this);
 
         Pics = (ImageView) findViewById(R.id.Pics);
 
         Word.setText(Logic.getSynligtOrd());
-
-        System.out.println(Logic.getOrdet());
 
         Used.setText("Used Letters: " + Logic.getBrugteBogstaver());
 
@@ -90,15 +88,16 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         shared = getSharedPreferences("prefs", Context.MODE_PRIVATE);
 
+        System.out.println(Logic.getOrdet());
     }
 
     @Override
     public void onClick(View view) {
-
-        if (view == Check) {
+        if (view.getId() == R.id.check) {
             String guess = Input.getText().toString();
             Logic.gætBogstav(guess);
             Word.setText(Logic.getSynligtOrd());
+            System.out.println(Logic.getOrdet());
             hangingOfTheMan();
             Used.setText("Used Letters: " + Logic.getBrugteBogstaver());
 
@@ -146,16 +145,14 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 GameActivity.this.startActivity(lose);
 
                 finish();
-
             }
         }
-
-        else if (view == HomeButton){
+        else if (view.getId() == R.id.home){
             Intent Home = new Intent(GameActivity.this, MainActivity.class);
             GameActivity.this.startActivity(Home);
 
         }
-        else if (view == Reset) {
+        else if (view.getId() == R.id.reset) {
             Logic.nulstil();
             Word.setText(Logic.getSynligtOrd());
             hangingOfTheMan();
@@ -163,7 +160,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             Input.setText("");
             score = 0;
             Score.setText("Score: " + score);
-            System.out.println(Logic.getOrdet());
+            System.out.println(Logic.getSynligtOrd());
 
         }
 
