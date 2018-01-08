@@ -39,13 +39,12 @@ public class HighScoreActivity extends AppCompatActivity implements View.OnClick
 
     }
 
-    @Override
+   @Override
     public void onBackPressed() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
         finish();
     }
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
