@@ -53,7 +53,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -164,7 +163,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
-    //Hjælp fra Troels Just Christoffersen s120052
+    //Hjælp forneden fra Troels Just Christoffersen s120052
     }
     private void saveHighScore (int score, int Letters) {
         SharedPreferences prefobj = PreferenceManager.getDefaultSharedPreferences(this);

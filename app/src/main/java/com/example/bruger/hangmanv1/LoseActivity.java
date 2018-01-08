@@ -37,9 +37,10 @@ public class LoseActivity extends AppCompatActivity implements View.OnClickListe
         LoseMessage = (TextView) findViewById(R.id.LoseMessage);
         LoseMessage.setText("Sorry, You have lost. The right word was: " + word);
 
+        // Hjælp taget fra http://abhiandroid.com/androidstudio/add-audio-android-studio.html
         MediaPlayer lose= MediaPlayer.create(LoseActivity.this,R.raw.lose);
         lose.start();
-        // Hjælp taget fra http://abhiandroid.com/androidstudio/add-audio-android-studio.html
+
     }
 
     @Override

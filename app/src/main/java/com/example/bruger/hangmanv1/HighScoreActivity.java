@@ -1,9 +1,7 @@
 package com.example.bruger.hangmanv1;
 
-// Hjælp taget fra https://www.youtube.com/watch?v=_cV7cgQFDo0&t=8s
-// Og fra Troels Just Christoffersen s120052
+// Hjælp fra Troels Just Christoffersen s120052
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -13,7 +11,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -22,10 +19,7 @@ import java.util.ArrayList;
 
 public class HighScoreActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView highscore;
     Button BackButton;
-    int lastScore;
-    int Best1, Best2, Best3;
     private ListView listView;
 
     @Override

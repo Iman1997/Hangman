@@ -13,7 +13,6 @@ import nl.dionsegijn.konfetti.KonfettiView;
 import nl.dionsegijn.konfetti.models.Size;
 
 import static com.example.bruger.hangmanv1.GameActivity.*;
-import static nl.dionsegijn.konfetti.KonfettiView.*;
 
 
 public class WinActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,10 +28,9 @@ public class WinActivity extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_win);
 
+        // Hjælp taget fra http://abhiandroid.com/androidstudio/add-audio-android-studio.html
         MediaPlayer win= MediaPlayer.create(WinActivity.this,R.raw.win);
         win.start();
-
-        // Hjælp taget fra http://abhiandroid.com/androidstudio/add-audio-android-studio.html
 
         Galgelogik Winning = new Galgelogik();
 
