@@ -42,8 +42,6 @@ public class WinActivity extends AppCompatActivity implements View.OnClickListen
         HomeButton = (Button) findViewById(R.id.HomeButton);
         HomeButton.setOnClickListener(this);
 
-
-
         Intent w = getIntent();
         Bundle b = w.getExtras();
 
@@ -55,6 +53,7 @@ public class WinActivity extends AppCompatActivity implements View.OnClickListen
 
         konfettiView = (KonfettiView) findViewById(R.id.confetti);
 
+        int width = getResources().getDisplayMetrics().widthPixels;
         konfettiView.build()
                 .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA, Color.BLUE, Color.BLACK)
                 .setDirection(0.0, 359.0)
@@ -63,7 +62,7 @@ public class WinActivity extends AppCompatActivity implements View.OnClickListen
                 .setTimeToLive(2000L)
                 .addShapes(nl.dionsegijn.konfetti.models.Shape.CIRCLE, nl.dionsegijn.konfetti.models.Shape.RECT)
                 .addSizes(new Size(10, 10f))
-                .setPosition(-50f, konfettiView.getWidth() + 50f, -50f, -50f)
+                .setPosition(-50f, width+ 50f, -50f, -50f)
                 .stream(800, 5000L);
     }
 
@@ -73,11 +72,13 @@ public class WinActivity extends AppCompatActivity implements View.OnClickListen
         if (view == Replaybutton) {
             Intent i = new Intent(WinActivity.this, GameActivity.class);
             WinActivity.this.startActivity(i);
+            Logic.nulstil();
         }
 
         if (view == HomeButton) {
             Intent i = new Intent(WinActivity.this, MainActivity.class);
             WinActivity.this.startActivity(i);
+            Logic.nulstil();
         }
 
     }

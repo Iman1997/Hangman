@@ -9,14 +9,14 @@
 
     <Button
         android:id="@+id/Reset"
-        android:layout_width="78dp"
+        android:layout_width="86dp"
         android:layout_height="35dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_blue_dark"
-        android:text="Reset"
+        android:text="New word"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.927"
         app:layout_constraintLeft_toLeftOf="parent"
