@@ -130,6 +130,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 win.putExtra("Attempts",Logic.getBrugteBogstaver().size());
                 GameActivity.this.startActivity(win);
 
+                finish();
+
             }
             else if (Logic.erSpilletTabt()) {
                 Intent lose = new Intent(GameActivity.this, LoseActivity.class);
@@ -137,9 +139,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 lose.putExtra("Attempts",Logic.getBrugteBogstaver().size());
                 GameActivity.this.startActivity(lose);
 
+                finish();
+
             }
         }
-
 
         else if (view == HomeButton){
             Intent Home = new Intent(GameActivity.this, MainActivity.class);
@@ -160,6 +163,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+
 }
+
 
 
