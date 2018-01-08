@@ -69,9 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.Playbutton:
                 Intent i = new Intent(MainActivity.this, GameActivity.class);
                 MainActivity.this.startActivity(i);
-
                 Logic.nulstil();
-                
                 break;
 
         }
@@ -80,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.HighScoreButton:
                 Intent i = new Intent(MainActivity.this, HighScoreActivity.class);
                 MainActivity.this.startActivity(i);
+                Logic.nulstil();
                 break;
         }
 
@@ -87,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.WordButton:
                 Intent i = new Intent(MainActivity.this, WordsActivity.class);
                 MainActivity.this.startActivity(i);
+                Logic.nulstil();
                 break;
         }
     }

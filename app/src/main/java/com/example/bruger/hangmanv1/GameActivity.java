@@ -134,6 +134,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 Intent win = new Intent(GameActivity.this, WinActivity.class);
                 win.putExtra("Attempts",Logic.getBrugteBogstaver().size());
                 GameActivity.this.startActivity(win);
+                saveHighScore(score, Logic.getAntalForkerteBogstaver());
 
                 finish();
 
@@ -166,9 +167,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
-
+    //Hjælp fra Troels Just Christoffersen s120052
     }
-    private void saveHighScore (int score, Double ScoreTimeResult) {
+    private void saveHighScore (int score, int Letters) {
         SharedPreferences prefobj = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = prefobj.edit();
         Gson gsonobj = new Gson();
@@ -182,7 +183,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             highscores = new ArrayList<String>();
         }
 
-        highscores.add(score + "Letters " + Logic.getOrdet().length());
+        highscores.add("Score: " + score + " Used letters: " + Logic.getOrdet().length());
         System.out.println("HIGHSCORES: " +  highscores.toString());
         editor.putString("highscore", gsonobj.toJson(highscores)).apply();
     }
