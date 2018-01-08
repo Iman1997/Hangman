@@ -22,7 +22,6 @@ public class HighScoreActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_score);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         BackButton = (Button) findViewById(R.id.BackButton);
         BackButton.setOnClickListener(this);
