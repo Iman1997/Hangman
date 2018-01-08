@@ -53,6 +53,10 @@ public class Galgelogik {
     return spilletErTabt || spilletErVundet;
   }
 
+  public ArrayList<String> getMuligeOrd() {
+    return muligeOrd;
+  }
+
 
   public Galgelogik() {
     muligeOrd.add("bil");
@@ -77,6 +81,14 @@ public class Galgelogik {
     opdaterSynligtOrd();
   }
 
+  public void nytord(int position) {
+    brugteBogstaver.clear();
+    antalForkerteBogstaver = 0;
+    spilletErVundet = false;
+    spilletErTabt = false;
+    ordet = muligeOrd.get(position);
+    opdaterSynligtOrd();
+  }
 
   private void opdaterSynligtOrd() {
     synligtOrd = "";

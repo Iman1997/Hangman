@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public Button Playbutton;
     public Button HighscoreButton;
+    public Button WordButton;
     TextView NumberofVictories;
     SharedPreferences shared;
 
@@ -26,9 +27,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         Playbutton = (Button) findViewById(R.id.Playbutton);
         Playbutton.setOnClickListener(this);
+
+        WordButton = (Button) findViewById(R.id.WordButton);
+        WordButton.setOnClickListener(this);
 
         HighscoreButton = (Button) findViewById(R.id.HighScoreButton);
         HighscoreButton.setOnClickListener(this);
@@ -66,12 +69,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.Playbutton:
                 Intent i = new Intent(MainActivity.this, GameActivity.class);
                 MainActivity.this.startActivity(i);
+
+                Logic.nulstil();
+                
                 break;
+
         }
 
         switch (view.getId()){
             case R.id.HighScoreButton:
                 Intent i = new Intent(MainActivity.this, HighScoreActivity.class);
+                MainActivity.this.startActivity(i);
+                break;
+        }
+
+        switch (view.getId()){
+            case R.id.WordButton:
+                Intent i = new Intent(MainActivity.this, WordsActivity.class);
                 MainActivity.this.startActivity(i);
                 break;
         }

@@ -54,7 +54,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        Word = (TextView) findViewById(R.id.Word);
+        Word = (TextView) findViewById(R.id.WordButton);
         Used = (TextView) findViewById(R.id.Used);
         Score = (TextView) findViewById(R.id.Score);
 
@@ -70,8 +70,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         Reset.setOnClickListener(this);
 
         Pics = (ImageView) findViewById(R.id.Pics);
-
-        Logic.nulstil();
 
         Word.setText(Logic.getSynligtOrd());
 
