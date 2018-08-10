@@ -20,7 +20,7 @@ import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView mTextViewResult;
 
@@ -71,10 +71,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginRequest(final JSONObject user) {
-        String url = "http://192.168.174.130/Webservice/login/authenticate";
+        String url = "http://localhost/Webservice/webresources/login/authenticate";
 
         queue = Volley.newRequestQueue(getApplicationContext());
-        //queue.start();
+        queue.start();
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, user,
                 new Response.Listener<JSONObject>() {
@@ -83,8 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                         // Result handling
                         Log.d("STATE",jsonObject.toString() );
                         System.out.println(jsonObject.toString());
-                        Intent Home = new Intent(LoginActivity.this, MainActivity.class);
-                        LoginActivity.this.startActivity(Home);
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -98,12 +97,18 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
                 //statusCode = response.statusCode;
-
+                Intent home = new Intent(LoginActivity.this, MainActivity.class);
+                LoginActivity.this.startActivity(home);
+                Log.i("test","test");
                 return super.parseNetworkResponse(response);
             }
         };
         queue.add(jsonObjectRequest);
-        queue.start();
+
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }
