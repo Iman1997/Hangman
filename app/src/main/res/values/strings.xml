@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">s165228 Hangman</string>
+    <string name="app_name">Hangman</string>
+    <string name="login">Login</string>
 </resources>
