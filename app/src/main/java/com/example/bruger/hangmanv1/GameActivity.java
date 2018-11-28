@@ -67,6 +67,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         check = (Button) findViewById(R.id.check);
         check.setOnClickListener(this);
 
+
         homeButton = (Button) findViewById(R.id.home);
         homeButton.setOnClickListener(this);
 
